@@ -2,15 +2,56 @@
 <uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_AMP3IP8fEeW45bORGB4c_A" name="RootElement">
     <packagedElement xmi:type="uml:StateMachine" xmi:id="_AMRFQP8fEeW45bORGB4c_A" name="StateMachine">
         <region xmi:type="uml:Region" xmi:id="_AMRsUP8fEeW45bORGB4c_A" name="Region1">
-            <transition xmi:type="uml:Transition" xmi:id="_chgcgP8fEeW45bORGB4c_A" source="_EZrg4P8fEeW45bORGB4c_A" target="_FAvg4P8fEeW45bORGB4c_A">
-                <trigger xmi:type="uml:Trigger" xmi:id="_hs5jUP8fEeW45bORGB4c_A" event="_NeH84P8fEeW45bORGB4c_A"/>
+          
+			<transition xmi:type="uml:Transition" xmi:id="1" source="1" target="4">
+                <trigger xmi:type="uml:Trigger" xmi:id="1" event="FINISH_FE_EVENT"/>
             </transition>
-            <transition xmi:type="uml:Transition" xmi:id="_egLIoP8fEeW45bORGB4c_A" source="_Fg0IEP8fEeW45bORGB4c_A" target="_EZrg4P8fEeW45bORGB4c_A"/>
-            <subvertex xmi:type="uml:State" xmi:id="_EZrg4P8fEeW45bORGB4c_A" name="S1"/>
-            <subvertex xmi:type="uml:State" xmi:id="_FAvg4P8fEeW45bORGB4c_A" name="S2"/>
-            <subvertex xmi:type="uml:Pseudostate" xmi:id="_Fg0IEP8fEeW45bORGB4c_A"/>
+			
+			<transition xmi:type="uml:Transition" xmi:id="2" source="1" target="2">
+                <trigger xmi:type="uml:Trigger" xmi:id="1" event="QUERY_FE_EVENT"/>
+            </transition>
+			
+			<transition xmi:type="uml:Transition" xmi:id="3" source="1" target="3">
+                <trigger xmi:type="uml:Trigger" xmi:id="1" event="REVOCE_FE_EVENT"/>
+            </transition>
+			
+			<transition xmi:type="uml:Transition" xmi:id="4" source="2" target="1">
+                <trigger xmi:type="uml:Trigger" xmi:id="1" event="ANSWER_FE_EVENT"/>
+            </transition>
+			
+			<transition xmi:type="uml:Transition" xmi:id="4" source="2" target="2">
+                <trigger xmi:type="uml:Trigger" xmi:id="1" event="PROLONG_FE_EVENT"/>
+            </transition>
+			
+			
+			<transition xmi:type="uml:Transition" xmi:id="_egLIoP8fEeW45bORGB4c_A" source="0" target="1"/>
+        
+            <subvertex xmi:type="uml:State" xmi:id="1" name="FE" desc="Формальная экспертиза"/>
+            <subvertex xmi:type="uml:State" xmi:id="2" name="QUERY_FE" desc="Запрос ФЭ"/>
+			<subvertex xmi:type="uml:State" xmi:id="3" name="REVOCE_FE" desc="Отзыв заявки"/>
+			<subvertex xmi:type="uml:State" xmi:id="4" name="FINISH_FE" desc="ФЭ завершена"/>
+		    <subvertex xmi:type="uml:Pseudostate" xmi:id="0"/>
+		
         </region>
     </packagedElement>
-    <packagedElement xmi:type="uml:Signal" xmi:id="_L01D0P8fEeW45bORGB4c_A" name="E1"/>
-    <packagedElement xmi:type="uml:SignalEvent" xmi:id="_NeH84P8fEeW45bORGB4c_A" name="SE1" signal="_L01D0P8fEeW45bORGB4c_A"/>
+	
+    <packagedElement xmi:type="uml:Signal" xmi:id="FINISH_FE_SIGNAL" name="FINISH_FE_SIGNAL"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="FINISH_FE_EVENT" name="FINISH_FE_EVENT" signal="FINISH_FE_SIGNAL"/>
+	
+	<packagedElement xmi:type="uml:Signal" xmi:id="REVOCE_FE_SIGNAL" name="REVOCE_FE_SIGNAL"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="REVOCE_FE_EVENT" name="REVOCE_FE_EVENT" signal="REVOCE_FE_SIGNAL"/>
+	
+	<packagedElement xmi:type="uml:Signal" xmi:id="QUERY_FE_SIGNAL" name="QUERY_FE_SIGNAL"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="QUERY_FE_EVENT" name="QUERY_FE_EVENT" signal="QUERY_FE_SIGNAL"/>
+	
+	<packagedElement xmi:type="uml:Signal" xmi:id="ANSWER_FE_SIGNAL" name="ANSWER_FE_SIGNAL"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="ANSWER_FE_EVENT" name="ANSWER_FE_EVENT" signal="ANSWER_FE_SIGNAL"/>
+	
+	<packagedElement xmi:type="uml:Signal" xmi:id="PROLONG_FE_SIGNAL" name="PROLONG_FE_SIGNAL"/>
+    <packagedElement xmi:type="uml:SignalEvent" xmi:id="PROLONG_FE_EVENT" name="ANSWER_FE_EVENT" signal="PROLONG_FE_SIGNAL"/>
+	
+	
+	
+	
 </uml:Model>
+
